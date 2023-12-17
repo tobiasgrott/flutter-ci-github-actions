@@ -14,12 +14,11 @@ jobs:
       with:
         flutter-version: '3.16.4'
         channel: 'stable'
-        sdk-version: '3.2.3'
     - run: flutter pub get
     - run: flutter test
     - run: flutter build apk --debug --split-per-abi
     - name: Create a Release APK
-      uses: ncipollo/release-action@v1
+      uses: ncipollo/release-action@v2
       with:
         artifacts: "build/app/outputs/apk/debug/*.apk"
         token: ${{ secrets.TOKEN }}
